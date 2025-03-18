@@ -46,30 +46,36 @@ cd remote-system-monitor
 ```
 
 
-
+```bash
 2. Build the project:
+```
 
 mkdir build
 cd build
 cmake ..
 make
-
+```
 
 3. Run the server:
+```bash
 
 ./server
 The server will listen for client connections on the default port (12345).
+```
 
 
 
 4. Run the client:
+```bash
 
 ./client
 The client will connect to the server and display the system stats.
+```
 
 
 
 📊 Example Output
+```bash
 
 Server Output (Console):
 
@@ -86,6 +92,7 @@ Received system stats:
   "disk": "35%",
   "network": "2.4MB/s"
 }
+```
 
 
 ⚙️ Features to Implement (Future Enhancements)
@@ -104,4 +111,7 @@ Moafk Aljabi
 
 
 📄 License
+
+```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
+```
