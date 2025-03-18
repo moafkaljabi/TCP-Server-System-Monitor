@@ -4,6 +4,9 @@ A simple **TCP server** that monitors **system stats** (CPU usage, RAM, disk spa
 
 
 
+
+
+
 ## 🚀 Features
 
 - **TCP Server**: Listens for incoming connections and sends system stats.
@@ -14,14 +17,21 @@ A simple **TCP server** that monitors **system stats** (CPU usage, RAM, disk spa
 
 
 
+
+
 ## 📂 Project Structure
+```bash
+/remote-system-monitor
+│── src/                  
+│   ├── server.cpp        # TCP server code
+│   ├── system_monitor.cpp # Code for gathering system stats
+│   └── client.cpp        # Simple client to request stats
+│── docs/                 # README, setup guide
+│── tests/                # Unit tests (optional)
+│── CMakeLists.txt        # Build configuration
+```
 
-/remote-system-monitor │── src/
-│ ├── server.cpp # TCP server code │ ├── system_monitor.cpp # Code for gathering system stats │ └── client.cpp # Simple client to request stats │── docs/ # README, setup guide │── tests/ # Unit tests (optional) │── CMakeLists.txt # Build configuration
 
-markdown
-Copy
-Edit
 
 ## 🛠️ Requirements
 
@@ -106,7 +116,10 @@ Multi-Client Support: Handle multiple clients simultaneously.
 
 
 👨‍💻 Author
+
 Moafk Aljabi
+
+
 
 
 
