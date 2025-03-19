@@ -8,21 +8,16 @@ TCP Servr for system monitoring
 
 */
 
-
-
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 
+#include "system_monitor.h"
 
 
-/*
 
-Implement the get_xx functions 
-
-*/
+// Implement the get_xx functions 
 
 
 std::string get_cpu_info()
@@ -36,8 +31,7 @@ std::string get_cpu_info()
     return line;
 }
 
-
-std::string get_memory_usage()
+std::string SystemMonitor::getMemoryUsage()
 {
     // Read
     std::ifstream meminfo_file("/proc/meminfo");
@@ -55,7 +49,7 @@ std::string get_system_stats()
 
     stats << "{"
             << "\"cpu\": \"" << get_cpu_info() << "\" , "
-            << "\"ram\": \""  << get_memory_usage() << "\""
+            << "\"ram\": \""  << getMemoryUsage() << "\""
             << "}";
 
     return stats.str();

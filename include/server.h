@@ -1,8 +1,7 @@
 #pragma once 
 
 #include "main.h"
-
-
+#include "system_monitor.h"
 
 
 
@@ -19,10 +18,17 @@ public:
 private:
      void handleClient(int clientSocket);
      void sendStats(int clientSocket);
+     
+     SystemMonitor systemMonitor;
 
 
 private: 
-    int port;
-    int serverSocket;
-    bool running;
+    int m_port;
+    int m_serverSocket;
+
+private: 
+    bool initializeServer();
+    void handleSocket(int clientSocket);
+    
+
 };
