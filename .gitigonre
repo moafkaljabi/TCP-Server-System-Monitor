@@ -2,4 +2,7 @@ build/
 /server/build/
 /client/build/
 
+server/build/
+client/build/
+
 .notes.txt
