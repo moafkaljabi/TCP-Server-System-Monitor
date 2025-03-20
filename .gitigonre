@@ -2,17 +2,6 @@ build/
 /server/build/
 /client/build/
 
-server/build/
-client/build/
-
-
-build/*
-/server/build/*
-/client/build/*
-
-server/build/*
-client/build/*
-
 
 
 
