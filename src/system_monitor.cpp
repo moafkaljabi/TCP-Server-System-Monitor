@@ -42,20 +42,6 @@ std::string SystemMonitor::getMemoryUsage()
     return line;
 }
 
-
-// std::string SystemMonitor::getSystemStatsJSON()
-// {
-//     std::ostringstream stats;
-
-//     stats << "{"
-//             << "\"cpu\": \"" << getCPUInfo() << "\" , "
-//             << "\"ram\": \""  << getMemoryUsage() << "\""
-//             << "}";
-
-//     return stats.str();
-// }
-
-
 std::string SystemMonitor::getSystemStatsJSON() 
 {
         // Create a RapidJSON Document

@@ -26,9 +26,7 @@ private:
 private: 
     
     void handleClient(int clientSocket);
-    void sendStats(int clientSocket);
     bool initializeServer();
-    void handleSocket(int clientSocket);
     
 
 };

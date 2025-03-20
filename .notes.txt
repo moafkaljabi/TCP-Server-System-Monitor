@@ -1,0 +1,146 @@
+#include "server.h"
+#include <iostream>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <cstring>
+
+Server::Server(int port) : port(port), serverSocket(-1) {}
+
+Server::~Server() {
+    if (serverSocket != -1) {
+        close(serverSocket);
+    }
+}
+
+bool Server::initializeServer() {
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (serverSocket < 0) {
+        std::cerr << "Failed to create socket" << std::endl;
+        return false;
+    }
+
+    sockaddr_in serverAddr;
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+    serverAddr.sin_port = htons(port);
+
+    if (bind(serverSocket, (struct sockaddr *)&serverAddr, sizeof(serverAddr)) < 0) {
+        std::cerr << "Failed to bind socket" << std::endl;
+        return false;
+    }
+
+    if (listen(serverSocket, 5) < 0) {
+        std::cerr << "Failed to listen on socket" << std::endl;
+        return false;
+    }
+
+    std::cout << "Server started on port " << port << std::endl;
+    return true;
+}
+
+void Server::handleClient(int clientSocket) {
+    std::string response = systemMonitor.getSystemStatsJson();
+    send(clientSocket, response.c_str(), response.size(), 0);
+    close(clientSocket);
+}
+
+void Server::start() {
+    if (!initializeServer()) {
+        return;
+    }
+
+    while (true) {
+        sockaddr_in clientAddr;
+        socklen_t clientAddrLen = sizeof(clientAddr);
+        int clientSocket = accept(serverSocket, (struct sockaddr *)&clientAddr, &clientAddrLen);
+
+        if (clientSocket < 0) {
+            std::cerr << "Failed to accept client connection" << std::endl;
+            continue;
+        }
+
+        handleClient(clientSocket);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+2025
+Moafk Aljabi
+
+TCP Servr for system monitoring
+
+
+*/
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
+#include "system_monitor.h"
+
+
+
+// Implement the get_xx functions 
+
+
+std::string SystemMonitor::getCPUInfo()
+{
+    // Read 
+    std::ifstream stat_file("/proc/stat");
+    std::string line;
+
+    std::getline(stat_file, line);
+
+    return line;
+}
+
+std::string SystemMonitor::getMemoryUsage()
+{
+    // Read
+    std::ifstream meminfo_file("/proc/meminfo");
+    std::string line;
+
+    std::getline(meminfo_file, line);
+
+    return line;
+}
+
+std::string SystemMonitor::getSystemStatsJSON() 
+{
+        // Create a RapidJSON Document
+        rapidjson::Document doc;
+        doc.SetObject();
+        rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
+    
+        std::string cpu = getCPUInfo();
+        std::string ram = getMemoryUsage();
+    
+        doc.AddMember("cpu", rapidjson::Value(cpu.c_str(), allocator), allocator);
+        doc.AddMember("ram", rapidjson::Value(ram.c_str(), allocator), allocator);
+    
+        // Convert to JSON string
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        doc.Accept(writer);
+    
+        return buffer.GetString();
+    }
