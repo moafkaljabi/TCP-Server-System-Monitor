@@ -15,20 +15,22 @@ public:
     void stop();
 
 
-private:
-     void handleClient(int clientSocket);
-     void sendStats(int clientSocket);
-     
-     SystemMonitor systemMonitor;
-
-
+    
+    SystemMonitor systemMonitor;
+    
+    
 private: 
     int m_port;
     int m_serverSocket;
-
+    
 private: 
+    
+    void handleClient(int clientSocket);
+    void sendStats(int clientSocket);
     bool initializeServer();
     void handleSocket(int clientSocket);
     
 
 };
+
+

@@ -20,7 +20,7 @@ TCP Servr for system monitoring
 // Implement the get_xx functions 
 
 
-std::string get_cpu_info()
+std::string SystemMonitor::getCPUInfo()
 {
     // Read 
     std::ifstream stat_file("/proc/stat");
@@ -43,14 +43,36 @@ std::string SystemMonitor::getMemoryUsage()
 }
 
 
-std::string get_system_stats()
+// std::string SystemMonitor::getSystemStatsJSON()
+// {
+//     std::ostringstream stats;
+
+//     stats << "{"
+//             << "\"cpu\": \"" << getCPUInfo() << "\" , "
+//             << "\"ram\": \""  << getMemoryUsage() << "\""
+//             << "}";
+
+//     return stats.str();
+// }
+
+
+std::string SystemMonitor::getSystemStatsJSON() 
 {
-    std::ostringstream stats;
-
-    stats << "{"
-            << "\"cpu\": \"" << get_cpu_info() << "\" , "
-            << "\"ram\": \""  << getMemoryUsage() << "\""
-            << "}";
-
-    return stats.str();
-}
+        // Create a RapidJSON Document
+        rapidjson::Document doc;
+        doc.SetObject();
+        rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
+    
+        std::string cpu = getCPUInfo();
+        std::string ram = getMemoryUsage();
+    
+        doc.AddMember("cpu", rapidjson::Value(cpu.c_str(), allocator), allocator);
+        doc.AddMember("ram", rapidjson::Value(ram.c_str(), allocator), allocator);
+    
+        // Convert to JSON string
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        doc.Accept(writer);
+    
+        return buffer.GetString();
+    }

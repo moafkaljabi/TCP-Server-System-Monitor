@@ -1,11 +1,27 @@
-cmake_minumum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
+
 
 project(Remote_System_Monitor)
 
 set(CMAKE_CXX_STANDARD 20)
-
-add_executable(server src/server.cpp src/system_monitor.cpp)
-add_executable(client src/client.cpp)
+set(CMAKE_C_STANDARD_REQUIRED True)
 
 
-SET(CMAKE_BUILD_TYPE "Debug")
+find_package(RapidJSON REQUIRED)
+
+include_directories(include)
+
+set(SOURCES 
+    src/main.cpp
+    src/client.cpp
+    src/server.cpp
+    src/system_monitor.cpp
+)
+
+add_executable(server ${SOURCES})
+
+
+
+
+
+target_compile_options(server PRIVATE -Wall -Wextra -Wpedantic)
