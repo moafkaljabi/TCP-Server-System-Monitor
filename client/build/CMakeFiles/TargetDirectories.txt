@@ -1,3 +1,0 @@
-/home/moafk/Documents/remote-system-monitor/client/build/CMakeFiles/client.dir
-/home/moafk/Documents/remote-system-monitor/client/build/CMakeFiles/edit_cache.dir
-/home/moafk/Documents/remote-system-monitor/client/build/CMakeFiles/rebuild_cache.dir
