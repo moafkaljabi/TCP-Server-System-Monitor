@@ -69,8 +69,6 @@ void Server::handleClient(int clientSocket)
 
 
 
-
-
 void Server::start()
 {
     if(!initializeServer()){}
