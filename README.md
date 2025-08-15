@@ -84,7 +84,7 @@ The client will connect to the server and display the system stats.
 
 
 
-📊 Example Output
+Example Output
 ```bash
 
 Server Output (Console):
@@ -105,7 +105,7 @@ Received system stats:
 ```
 
 
-⚙️ Features to Implement (Future Enhancements)
+Features to Implement (Future Enhancements)
 
 Logging: Log system stats to a database (SQLite/MySQL).
 Web Dashboard: Real-time display of stats via a web interface.
@@ -115,7 +115,7 @@ Multi-Client Support: Handle multiple clients simultaneously.
 
 
 
-👨‍💻 Author
+Author
 
 Moafk Aljabi
 
@@ -128,3 +128,4 @@ Moafk Aljabi
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
