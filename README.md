@@ -55,15 +55,16 @@ git clone https://github.com/moafkaljabi/TCP-Server-System-Monitor.git
 cd TCP-Server-System-Monitor
 ```
 
-
+### 2. Build the project:
 ```bash
-2. Build the project:
-```
 
 mkdir build
 cd build
 cmake ..
 make
+```
+
+
 ```
 
 3. Run the server:
@@ -121,6 +122,7 @@ Moafk Aljabi
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
 
 
 
