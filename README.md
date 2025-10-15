@@ -35,7 +35,8 @@ This project uses **C++** for networking, system-level programming, and client-s
 
 ##  Requirements
 
-- **C++17 or higher**  
+- **C++17 or higher**
+- **rapidjson-dev**
 - **CMake** for build configuration
 - **Linux** OS (For system monitoring functionality)
   - `/proc/meminfo` for RAM
@@ -47,15 +48,20 @@ This project uses **C++** for networking, system-level programming, and client-s
 
 ##  Setup & Installation
 
+### 1. Install rapidjson-dev:
+```
+sudo apt update
+sudo apt install rapidjson-dev
+```
 
-### 1. Clone the repository:
+### 2. Clone the repository:
 
 ```bash
 git clone https://github.com/moafkaljabi/TCP-Server-System-Monitor.git
-cd TCP-Server-System-Monitor
+cd TCP-Server-System-Monitor/server
 ```
 
-### 2. Build the project:
+### 3. Build the project:
 ```bash
 
 mkdir build
@@ -65,23 +71,23 @@ make
 ```
 
 
-```
 
-3. Run the server:
+### 4. Run the server:
 ```bash
 
 ./server
-The server will listen for client connections on the default port (12345).
 ```
+The server will listen for client connections on the default port (12345).
 
 
 
-4. Run the client:
+### 5. Run the client in a new terminal:
 ```bash
 
+cd ../../client
 ./client
-The client will connect to the server and display the system stats.
 ```
+The client will connect to the server and display the system stats.
 
 
 
@@ -109,9 +115,7 @@ Received system stats:
 
 
 
-Author
-
-Moafk Aljabi
+Author: Moafk Aljabi
 
 
 
@@ -122,6 +126,7 @@ Moafk Aljabi
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
 
 
 
