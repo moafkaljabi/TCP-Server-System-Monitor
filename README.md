@@ -1,27 +1,27 @@
-# Remote System Monitor (TCP Server)
+# TCP-Server-System-Monitor
 
-A simple **TCP server** that monitors **system stats** (CPU usage, RAM, disk space, and network activity) and sends this information to a remote client. This project demonstrates how to use **C++** for networking, system-level programming, and client-server communication over TCP.
-
-
-
+A simple **TCP server** that monitors **system stats** (CPU usage, RAM, disk space, and network activity) and sends this information to a remote client.
+This project uses **C++** for networking, system-level programming, and client-server communication over TCP.
 
 
 
-## 🚀 Features
+
+
+
+##  Features
 
 - **TCP Server**: Listens for incoming connections and sends system stats.
 - **System Monitoring**: Monitors CPU, RAM, disk, and network usage.
 - **Client Communication**: Sends data to the client in a structured JSON format.
 - **Basic Client**: A simple client that connects to the server and displays stats.
-- **Expandable**: Can be extended with more features like logging, database integration, and web dashboard.
 
 
 
 
 
-## 📂 Project Structure
+##  Project Structure
 ```bash
-/remote-system-monitor
+/TCP-Server-System-Monitor
 │── src/                  
 │   ├── server.cpp        # TCP server code
 │   ├── system_monitor.cpp # Code for gathering system stats
@@ -45,13 +45,13 @@ A simple **TCP server** that monitors **system stats** (CPU usage, RAM, disk spa
  
 
 
-## 🚨 Setup & Installation
+##  Setup & Installation
 
 
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/remote-system-monitor.git
+git clone https://github.com/moafkaljabi/TCP-Server-System-Monitor.git
 cd remote-system-monitor
 ```
 
@@ -90,7 +90,7 @@ Example Output
 Server Output (Console):
 
 Server is listening on port 12345...
-Client connected from [192.168.1.5]
+Client connected from [ip]
 Sending system stats: {"cpu": "12.5%", "ram": "45.3%", "disk": "35%", "network": "2.4MB/s"}
 Client Output (Console):
 
@@ -105,13 +105,6 @@ Received system stats:
 ```
 
 
-Features to Implement (Future Enhancements)
-
-Logging: Log system stats to a database (SQLite/MySQL).
-Web Dashboard: Real-time display of stats via a web interface.
-Encryption: Add SSL/TLS encryption for secure communication.
-Cross-Platform Support: Make the server work on Windows/macOS.
-Multi-Client Support: Handle multiple clients simultaneously.
 
 
 
@@ -123,9 +116,10 @@ Moafk Aljabi
 
 
 
-📄 License
+ License
 
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
 
