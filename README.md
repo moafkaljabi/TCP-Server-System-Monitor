@@ -52,7 +52,7 @@ This project uses **C++** for networking, system-level programming, and client-s
 
 ```bash
 git clone https://github.com/moafkaljabi/TCP-Server-System-Monitor.git
-cd remote-system-monitor
+cd TCP-Server-System-Monitor
 ```
 
 
@@ -121,6 +121,7 @@ Moafk Aljabi
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
 
 
 
