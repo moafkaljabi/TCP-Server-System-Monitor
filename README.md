@@ -33,7 +33,7 @@ This project uses **C++** for networking, system-level programming, and client-s
 
 
 
-## 🛠️ Requirements
+##  Requirements
 
 - **C++17 or higher**  
 - **CMake** for build configuration
@@ -121,5 +121,6 @@ Moafk Aljabi
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
 
 
