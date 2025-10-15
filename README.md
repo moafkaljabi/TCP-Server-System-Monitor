@@ -81,12 +81,23 @@ The server will listen for client connections on the default port (12345).
 
 
 
-### 5. Run the client in a new terminal:
+### 5. in a new terminal, build the client:
 ```bash
 
-cd ../../client
+cd ../client
+mkdir build
+cd build
+cmake ..
+make
+```
+
+### 6. Run the client:
+```bash
+
 ./client
 ```
+
+
 The client will connect to the server and display the system stats.
 
 
@@ -126,6 +137,7 @@ Author: Moafk Aljabi
 ```bash
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
+
 
 
 
